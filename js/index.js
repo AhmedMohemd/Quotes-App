@@ -27,13 +27,29 @@ var Quote = [
     text: "“You know you're in love when you can't fall asleep because reality is finally better than your dreams.”",
     author: "― Dr. Seuss",
   },
+  {
+    text: "“To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.”",
+    author: "― Ralph Waldo Emerson",
+  },
+  {
+    text: "“I am so clever that sometimes I don't understand a single word of what I am saying.”",
+    author: "― Oscar Wilde, The Happy Prince and Other Stories",
+  },
+  {
+    text: "“Without music, life would be a mistake.”",
+    author: "― Friedrich Nietzsche, Twilight of the Idols",
+  },
 ];
 
 var QuotesText = document.getElementById("QuotesText");
 var QuotesAuthor = document.getElementById("QuotesAuthor");
-
+var lastIndex = -1;
 function QuotesApp() {
-  var changeQuotes = Math.floor(Math.random() * Quote.length);
+  var changeQuotes;
+  do {
+    changeQuotes = Math.floor(Math.random() * Quote.length);
+  } while (changeQuotes === lastIndex);
+  lastIndex = changeQuotes;
   var selectQoutes = Quote[changeQuotes];
 
   document.getElementById("QuotesText").innerHTML = selectQoutes.text;
